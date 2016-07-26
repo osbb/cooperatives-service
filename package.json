@@ -1,0 +1,14 @@
+{
+  "name": "cooperatives-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "module.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bluebird": "^3.4.1",
+    "mongodb": "^2.2.4",
+    "seneca": "^2.1.0"
+  }
+}

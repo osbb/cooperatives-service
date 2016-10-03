@@ -7,7 +7,8 @@
   "scripts": {
     "lint": "eslint --ext .js .",
     "pretest": "npm run lint --silent",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --require babel-register",
+    "coverage": "istanbul cover _mocha -- --require babel-register && istanbul check-coverage",
     "start": "babel-node ./module.js"
   },
   "dependencies": {
@@ -21,14 +22,16 @@
     "winston": "^2.2.0"
   },
   "devDependencies": {
+    "babel-register": "^6.14.0",
+    "chai": "^3.5.0",
     "eslint": "^3.1.1",
     "eslint-config-airbnb": "^9.0.1",
     "eslint-plugin-import": "^1.12.0",
     "eslint-plugin-jsx-a11y": "^2.0.1",
+    "eslint-plugin-mocha": "^4.5.1",
     "eslint-plugin-react": "^5.2.2",
+    "istanbul": "^1.0.0-alpha.2",
+    "mocha": "^3.0.2",
     "pre-commit": "^1.1.3"
-  },
-  "pre-commit": [
-    "lint"
-  ]
+  }
 }

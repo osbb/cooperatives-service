@@ -65,6 +65,14 @@ Promise
                 // notify queue message was processed
                 .then(() => ch.ack(msg));
               break;
+            case 'cooperatives.delete':
+              // logic call
+              Cooperatives.remove(db, data)
+              // send response to queue
+                .then(cooperative => sendResponseToMsg(ch, msg, cooperative))
+                // notify queue message was processed
+                .then(() => ch.ack(msg));
+              break;
             default:
               // if we can't process this message, we should send it back to queue
               ch.nack(msg);

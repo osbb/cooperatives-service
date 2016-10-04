@@ -18,3 +18,9 @@ export function create(db, data) {
     .insertOne(_.omit(data, '_id'), {})
     .then(res => db.collection(COLLECTION).findOne({ _id: ObjectId(res.insertedId) }, {}));
 }
+
+export function remove(db, data) {
+  return db.collection(COLLECTION)
+    .deleteOne({ _id: ObjectId(data._id) })
+    .then(() => ({ _id: data._id }));
+}
